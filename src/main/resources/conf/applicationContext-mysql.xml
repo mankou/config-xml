@@ -65,6 +65,6 @@
 	
 	
 	<import resource="applicationContext-tx.xml"/> 
-	<import resource="applicationContext-config-mysql.xml"/> 
+	<import resource="applicationContext-config.xml"/> 
 	
 </beans>

@@ -1,6 +1,7 @@
 package mang.tools.config;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.log4j.xml.DOMConfigurator;
 import org.springframework.context.ApplicationContext;
@@ -27,6 +28,10 @@ public class App {
 		// TestSnService service=ctx.getBean(TestSnService.class);
 		ConfigService service = (ConfigService) ctx.getBean("configService");
 		List lis=service.queryConfig("test");
+		
+		Map<String,String> map=service.queryConfigMap("test");
+		
+		String value=service.queryConfig("test", "0101");
 		
 
 		System.out.println("hah");
