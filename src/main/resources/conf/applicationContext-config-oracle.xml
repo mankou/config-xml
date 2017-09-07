@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans 
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans      
+    http://www.springframework.org/schema/beans/spring-beans.xsd      
+    http://www.springframework.org/schema/context      
+    http://www.springframework.org/schema/context/spring-context.xsd 
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop.xsd
+    http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx.xsd      
+    http://www.springframework.org/schema/mvc      
+    http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	
+	
+	<bean id="sn-invokeCode" class="mang.sn.tools.InvokeCode">
+		<property name="classPath" value="mang.sn" />
+	</bean>
+	
+
+	<!--  mysql配置-->
+	<bean id="timeDAO" class="mang.sn.dao.impl.TimeDAOImplOracle" >
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<bean id="snNumberDAOImplOracle" class="mang.sn.dao.impl.SnNumberDAOImplOracle">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<bean id="snNumberLogDAO" class="mang.sn.dao.impl.SnNumberLogDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+
+	<bean id="snService" class="mang.sn.service.impl.SnServiceImpl">
+		<property name="snNumberDAO" ref="snNumberDAOImplOracle" />
+		<property name="snNumberLogDAO" ref="snNumberLogDAO" />
+		<property name="timeDAO" ref="timeDAO" />
+	</bean>
+	
+	<bean id="testSnService" class="mang.sn.service.impl.TestSnServiceImpl">
+		<property name="snService" ref="snService" />
+		<property name="snNumberLogDAO" ref="snNumberLogDAO" />
+	</bean>
+
+
+</beans>

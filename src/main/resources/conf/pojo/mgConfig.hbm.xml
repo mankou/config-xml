@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="mang.tools.config.entity.MgConfig" table="mg_config">
+        <id name="id" type="string">
+            <column length="32" name="ID" />
+            <generator class="uuid" />
+        </id>
+        <property name="classify" type="string">
+            <column length="128" name="classify" not-null="false" />
+        </property>
+        <property name="codeName" type="string">
+            <column length="512" name="code_name" not-null="false" />
+        </property>
+        <property name="codeValue" type="string">
+            <column length="512" name="code_value" not-null="false" />
+        </property>
+         <property name="memo" type="string">
+            <column length="2048" name="memo" not-null="false" />
+        </property>
+        <property name="enabled" type="string">
+            <column length="32" name="enabled" not-null="false" />
+        </property>
+        <property name="createUserName" type="string">
+            <column length="64" name="create_user_name" not-null="false" />
+        </property>
+        <property name="createDate" type="timestamp">
+            <column name="create_date" not-null="false" />
+        </property>
+        <property name="updateUserName" type="string">
+            <column length="64" name="update_user_name" not-null="false" />
+        </property>
+        <property name="updateDate" type="timestamp">
+            <column name="update_date" not-null="false" />
+        </property>
+    </class>
+</hibernate-mapping>
