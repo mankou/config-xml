@@ -21,8 +21,6 @@ public class ConfigServiceImpl implements ConfigService {
 		return lis;
 	}
 	
-	
-	
 
 
 	@Override
@@ -41,14 +39,21 @@ public class ConfigServiceImpl implements ConfigService {
 	}
 	
 	
+
+	@Override
+	public String queryConfig(String classify, String codeName) {
+		MgConfig config=mgConfigDAO.queryConfig(classify, codeName);
+		if(config!=null){
+			return config.getCodeValue();
+		}
+		return null;
+	}
+	
 	public MgConfigDAO getMgConfigDAO() {
 		return mgConfigDAO;
 	}
 	public void setMgConfigDAO(MgConfigDAO mgConfigDAO) {
 		this.mgConfigDAO = mgConfigDAO;
 	}
-	
-	
-	
 
 }

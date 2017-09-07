@@ -6,4 +6,6 @@ import mang.tools.config.entity.MgConfig;
 
 public interface MgConfigDAO {
 	public List<MgConfig> queryByClassify(String classify);
+	
+	public MgConfig queryConfig(String classify,String codeName);
 }

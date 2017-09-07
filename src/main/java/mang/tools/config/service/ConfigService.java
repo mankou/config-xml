@@ -9,4 +9,7 @@ public interface ConfigService {
 	public List<MgConfig> queryConfig(String classify);
 	
 	public Map<String/*codeName*/,String/*codeValue*/> queryConfigMap(String classify);
+	
+	
+	public String queryConfig(String classify,String codeName);
 }
