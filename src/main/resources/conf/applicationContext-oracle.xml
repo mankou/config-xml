@@ -62,6 +62,6 @@
 	
 	
 	<import resource="applicationContext-tx.xml"/>
-	<import resource="applicationContext-sn.xml"/>
+	<import resource="applicationContext-config.xml"/>
 	
 </beans>
