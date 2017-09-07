@@ -25,9 +25,29 @@ public class ConfigServiceImpl implements ConfigService {
 
 	@Override
 	public Map<String, String> queryConfigMap(String classify) {
-		Map<String,String> map=new HashMap<String, String>();
 		List<MgConfig> lis=mgConfigDAO.queryByClassify(classify);
-		
+		Map<String,String> map=this.list2Map(lis);
+		return map;
+	}
+	
+	@Override
+	public List<MgConfig> queryAllConfig(String classify) {
+		List<MgConfig> list=mgConfigDAO.queryAllConfig();
+		return list;
+	}
+
+
+
+	@Override
+	public Map<String, String> queryAllConfigMap(String classify) {
+		List<MgConfig> lis=mgConfigDAO.queryAllConfig();
+		Map<String,String> map=this.list2Map(lis);
+		return map;
+	}
+	
+	
+	private Map<String,String> list2Map(List<MgConfig> lis){
+		Map<String,String> map=new HashMap<String, String>();
 		if(lis!=null && lis.size()>0){
 			for(MgConfig mgConfig:lis){
 				String codeName=mgConfig.getCodeName();
@@ -36,8 +56,8 @@ public class ConfigServiceImpl implements ConfigService {
 			}
 		}
 		return map;
+		
 	}
-	
 	
 
 	@Override
@@ -55,5 +75,9 @@ public class ConfigServiceImpl implements ConfigService {
 	public void setMgConfigDAO(MgConfigDAO mgConfigDAO) {
 		this.mgConfigDAO = mgConfigDAO;
 	}
+
+
+
+
 
 }

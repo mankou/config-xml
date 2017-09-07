@@ -31,4 +31,13 @@ public class MgConfigDAOImpl extends BaseDAOImpl<MgConfig> implements MgConfigDA
 		return config;
 	}
 
+	@Override
+	public List<MgConfig> queryAllConfig() {
+		String hql="from MgConfig t where t.enabled=:enabled  ";
+		Query query=this.getSession().createQuery(hql);
+		query.setString("enabled", Constant.enabled);
+		List<MgConfig> lis=query.list();
+		return lis;
+	}
+
 }

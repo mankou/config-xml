@@ -11,5 +11,10 @@ public interface ConfigService {
 	public Map<String/*codeName*/,String/*codeValue*/> queryConfigMap(String classify);
 	
 	
+	public List<MgConfig> queryAllConfig(String classify);
+	
+	public Map<String/*codeName*/,String/*codeValue*/> queryAllConfigMap(String classify);
+	
+	
 	public String queryConfig(String classify,String codeName);
 }
