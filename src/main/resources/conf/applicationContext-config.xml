@@ -19,7 +19,6 @@
     http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 	
 
-	<!--  mysql配置-->
 	<bean id="mgConfigDAO" class="mang.tools.config.dao.impl.MgConfigDAOImpl" >
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
